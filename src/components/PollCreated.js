@@ -31,12 +31,13 @@ this.props.handleAddAnswer(this.state.id, this.state.radioVal)
 
  render() { 
    // we got last poll added in series in data cause we are answering or showing the added now question
-  const {usersArray ,authedUser, polls} = this.props
+  const {usersArray ,authedUser, polls, location} = this.props
    const userChoosed = usersArray.filter((user) => {if ( user.id === authedUser) {return user} return null})
-const newQues = userChoosed[0];
+
+   const newQues = userChoosed[0];
 const keyCreated = polls[polls.length-1].id;
-const optionOne = polls[polls.length-1].optionOne.text;
-const optionTwo =polls[polls.length-1].optionOne.text
+const optionOne = location.state.optionOne;
+const optionTwo = location.state.optionTwo;
 
   return (
    <div>
@@ -71,7 +72,7 @@ const optionTwo =polls[polls.length-1].optionOne.text
   );
 }
 }
-function mapStateToProps ({...state}, ) {
+function mapStateToProps ({...state},) {
   return {
   usersArray: Object.values(state.users),
    authedUser: state.authedUser,

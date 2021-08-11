@@ -19,7 +19,9 @@ export default function polls (state = {}, action) {
 				...state,
 				[qid]: {...state[qid],
 					[answer]: {...state[qid][answer],
-						votes: state[qid][answer].votes.concat([authedUser])}}
+						votes: state[qid][answer].votes.concat([authedUser])},
+          timestamp: Date.now()}
+          // the time stamp update to make any answer for question become with updated time
           }
          default : 
         return state 

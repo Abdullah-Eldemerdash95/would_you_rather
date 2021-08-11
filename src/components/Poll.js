@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import {Card} from 'react-bootstrap'
 import Navigation from './Nav'
 import { handleAddPoll } from '../actions/polls';
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class PollCreation extends Component {
   state = {
@@ -48,7 +48,12 @@ const newQues = userChoosed[0];
     <input type='text'  value={this.state.optionTwo} name={'optionTwo'} onChange={this.setQuesValue}/>
     <button type='submit' onClick={this.handleChange} >
       {/*this to send us to page that contain only question */}
-      <NavLink to={`/createdPoll/:${this.props.authedUser}`}>add new question </NavLink> </button>
+      <Link to={{
+        pathname: `/createdPoll/:${this.props.authedUser}`,
+        state:{
+          optionOne: this.state.optionOne,
+          optionTwo: this.state.optionTwo
+        }}}>add new question </Link> </button>
     </Card.Text>
     
     </Card></div>

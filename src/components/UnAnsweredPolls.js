@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux'
 import {Card} from 'react-bootstrap'
 import { handleAddAnswer } from '../actions/polls';
+import { Link } from 'react-router-dom'
 
 class UnAnsweredPolls extends Component {
   state = {
@@ -10,7 +11,7 @@ class UnAnsweredPolls extends Component {
     ,count : ( (((this.props.polls.filter((poll) => {if (!([...(Object.keys((this.props.usersArray.filter((user) => {if ( user.id === this.props.authedUser) {return user} return null}))[0].answers))]).includes(poll.id)) {return poll.id} return null}))).map((f) => {return f.id })).reduce((acc, curr)=> (acc[curr]= 0, acc), {}))
     ,nameAdded : ((((this.props.polls.filter((poll) => {if (!([...(Object.keys((this.props.usersArray.filter((user) => {if ( user.id === this.props.authedUser) {return user} return null}))[0].answers))]).includes(poll.id)) {return poll.id} return null}))).map((f) => {return f.id })).reduce((acc, curr)=> (acc[curr]= '', acc), {}))
     ,answer: '',
-    errorMsg: ''
+    errorMsg: '',
   } // we are using in state that each state variable contain the ids of each question to control every thing here for each question
   // we filter questions and for each question we confirm that id is equal to authed user then return object keys for answered ids and see if it includes the question id that we are in or not if not
   //if not return new poll id if opposite return null then all that before is resulting map has all ids i needed to become object 
@@ -33,9 +34,11 @@ class UnAnsweredPolls extends Component {
     }
 
   handleSubmit2 = (e) => {
-    e.preventDefault();
     const shifo = e.target.name;
     console.log(shifo)
+ if(this.state.answer === '') {(e.preventDefault())} 
+ else { 
+    e.preventDefault()
     this.setState(prevState => ({
       nike: {...prevState.nike, [shifo]: true },
     count: {...prevState.count, [shifo]: +1 },
@@ -44,9 +47,11 @@ class UnAnsweredPolls extends Component {
   this.setState({
     answer: this.state.check[shifo]    
   })
-  this.props.handleAddAnswer(shifo, this.state.answer);
+  this.props.handleAddAnswer(shifo, this.state.answer) }
 }
-
+handleChange=(e)=> {
+  e.preventDefault();
+};
   
  render() {
    
@@ -60,7 +65,7 @@ class UnAnsweredPolls extends Component {
   return (
      <div>
          <div> {/*now for each question that already not answered we map over questions to show each one */}
-       {(z.map((q)=> <Card className='polls_Ques' key={q.id} > 
+       {z.map((q)=> <Card className='polls_Ques' key={q.id} > 
             <Card.Body className='babe1'> {usersArray.map((user)=> {if (((q.author)) === (user.id)) 
             {return <span key={user.id}>
             <div><p>{user.name}</p>
@@ -89,11 +94,19 @@ class UnAnsweredPolls extends Component {
               </label></p>
               <button type='submit' onClick={this.handleSubmit2} name={q.id}> confirm answer</button>
               <span className='TotalAnswers'> Total answer is equal {(q.optionOne.votes.length)+(q.optionTwo.votes.length)+(this.state.count[q.id])}</span> 
-            
+              <button type='submit' onClick={this.handleChange} >
+      {/*this to send us to page that contain only question */}
+      <Link to={{
+        pathname: `/question/:question_${q.id}`,
+        state:{
+          username: q.author,
+          key: q.id,
+          optionOne: q.optionOne,
+          optionTwo: q.optionTwo
+        }}}>View question </Link> </button>
             </div>
-            </Card>)).sort((a, b) => {/* this to sort answered questions due to time */
-          return a.timestamp - b.timestamp;
-      })}
+            </Card>)
+      }
        </div>
        
    </div>
@@ -104,7 +117,7 @@ class UnAnsweredPolls extends Component {
 
 function mapStateToProps ({...state}) {
   return {
-    polls: Object.values(state.polls),
+    polls: Object.values(state.polls).sort((a,b)=> b.timestamp - a.timestamp),/* this to sort answered questions due to time */
     usersArray: Object.values(state.users),
    authedUser: state.authedUser}}
 

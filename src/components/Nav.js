@@ -11,7 +11,7 @@ class Navigation extends Component {
  return (
     <nav bg="light" expand="lg"  className=" navbar-expand-lg navbar-light bg-light container">
      <div className='float_left'><NavLink to={`/Home/:${this.props.authedUser}`}>Home</NavLink>
-      <NavLink to={`/newpoll/:${this.props.authedUser}`}>new poll </NavLink>
+      <NavLink to={`/add/:${this.props.authedUser}`}>new poll </NavLink>
       <NavLink to={`/leaderboard/:${this.props.authedUser}`}>leaderBoard</NavLink></div>
       <div className='float_right'> 
       <span>{this.props.authedUser} </span>

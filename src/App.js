@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Home from "./components/Home";
 import Poll from "./components/Poll";
 import PollCreated from "./components/PollCreated";
+import PollDetails from "./components/PollDetails";
 import Page404 from "./components/Page404";
 import Login from "./components/Login";
 import LeaderBoard from "./components/LeaderBoard";
@@ -24,7 +25,8 @@ class App extends Component {
       <Switch>
       <Route exact path="/" name="Login Page" render={(props) => <Login {...props} />}/>
        <PrivateRoute exact path={`/Home/:${this.props.authedUser}`}  component={Home} />
-       <PrivateRoute exact path={`/newpoll/:${this.props.authedUser}`}  component={Poll} />
+       <PrivateRoute exact path={`/add/:${this.props.authedUser}`}  component={Poll} />
+       <PrivateRoute exact path={`/question/:question_id`}  component={PollDetails} />
        <PrivateRoute exact path={`/createdpoll/:${this.props.authedUser}`} component={PollCreated}  />
        <PrivateRoute exact path={`/leaderboard/:${this.props.authedUser}`} component={LeaderBoard}  />
        <PrivateRoute component={Page404} /><Redirect to="/404" />
