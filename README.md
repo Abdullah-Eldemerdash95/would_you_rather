@@ -121,3 +121,5 @@ connected and presentational comps if we can determine those
 -- 4th u can add new question by new poll pressing it after completing question u go to question only to answer if u would love to and after answer u go back auto to home page
 -- u can see leaderboard to see total amount of interactions in site for whole users 
 -- 5th u can logout and log in as u want 
+
+-- i add for each question button to see it with it's id with full details
