@@ -1,3 +1,8 @@
+*{-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +16,317 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+nav{
+  height: 75px;
+  padding: 15px;
+  margin-bottom: 25px;
+  color: white;
+  font-size: 22px;
+  background-color: #082a76;}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0px;
+  padding: 0px 30px 0px 30px;
+}
+nav .float_left {float: left;padding-top: 5px; }
+nav .float_right {float: right;}
+nav .float_right img { padding: 0px;}
+
+nav a:hover {
+  color: aqua;
+}
+
+
+.Login select {
+  display: block;
+  margin: 30px auto;
+  width: 170px;
+  padding: 15px ;
+  font-size: 18px;
+  color: darkslategray;
+  border: 2px solid blue;
+  border-radius: 20px;
+}
+
+.Login select:focus-visible{
+  outline: none;
+}
+
+.Login_Button {
+display: block;
+margin: 0px auto;
+text-align: center;
+text-decoration: none;
+font-size: 18px;
+border: 2px solid blue;
+background-color: transparent;
+color: darkslategray;
+border-radius: 20px;
+padding: 15px 55px;
+}
+
+.Login_Link {
+  text-decoration: none;
+}
+
+  .Polls_span 
+ {
+border: 2px solid blue;
+border-radius: 20px;
+font-size: 18px;
+padding: 10px;
+margin: 20px 5px;
+color: darkslategray;
+background-color: transparent;
+    width: 15%;
+    height: 44px;
+    cursor: pointer;
+}
+.Polls_span.active {
+  background-color: lightgrey;
+}
+.Polls_span.shendy {
+  background-color: transparent;
+}
+
+.Un_Answered_Polls {
+  text-align: center;
+  margin: 0px auto;
+}
+
+.Un_Answered_Polls > div {
+  margin-top: 20px 
+}
+
+.Un_Answered_Polls .polls_Ques
+{width: 80%;
+    margin: 10px auto;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 0px 0px 11px lightslategrey;
+    height: 170px;
+  }
+
+  .Un_Answered_Polls .polls_Ques .babe1{
+    float: left;
+    padding: 15px 25px;
+    margin: 0px;
+    width: 25%;
+  }
+  
+  .Un_Answered_Polls .polls_Ques .babe2 {
+    text-align: left;
+    float: right;
+    padding: 30px 0px;
+    margin: 0px;
+    width: 75%;
+  }
+
+  .Un_Answered_Polls .polls_Ques .babe2 p {
+    margin: 8px 0px ;
+    padding: 0px;
+  }
+  
+  .Un_Answered_Polls .polls_Ques .AnsweredBY {
+    margin: 5px;
+  }
+
+  .Un_Answered_Polls .polls_Ques .TotalAnswers {
+    margin: 20px;
+  }
+
+  .Answered_Polls {
+  text-align: center;
+  margin: 0px auto;
+}
+
+.Answered_Polls > div {
+  margin-top: 20px 
+}
+
+.Answered_Polls .polls_Answered
+{width: 80%;
+    margin: 10px auto;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 0px 0px 11px lightslategrey;
+    height: 170px;
+  }
+
+  .Answered_Polls .polls_Answered .babe1{
+    float: left;
+    padding: 15px 25px;
+    margin: 0px;
+    width: 20%;
+  }
+
+  
+  .Answered_Polls .polls_Answered .babe2 {
+    text-align: left;
+    float: right;
+    padding: 30px 0px;
+    margin: 0px;
+    width: 80%;
+
+  }
+  .Answered_Polls .polls_Answered .babe2.babe2 p {
+    margin: 8px 0px ;
+    padding: 0px;
+  }
+  
+  .Answered_Polls .polls_Answered .AnsweredBY {
+    margin: 5px;
+  }
+
+  .Answered_Polls .polls_Answered .TotalAnswers {
+    margin: 20px;
+  }
+
+  .Leaderboard {
+    text-align: center;
+    margin: 0px auto;
+  }
+  .Leaderboard .card {
+    margin: 10px auto;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 0px 0px 11px lightslategrey;
+    height: 140px;
+    
+  }
+
+  .Leaderboard .card .card-body{
+display: block;
+float: left;
+width: 20%;
+text-align: center;
+line-height: 60px;
+
+  }  
+  .Leaderboard .card .card-text {
+    display: block;
+    float: right;
+    width: 80%;
+    text-align: left;
+padding: 8px 0px;
+  }
+
+
+  
+
+  .poll {
+    text-align: center;
+    margin: 0px auto;
+  }
+  .poll .pollInProgress .card {
+    margin: 10px auto;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 0px 0px 11px lightslategrey;
+    height: 140px;
+    width: 80%;
+    
+  }
+
+  .poll .pollInProgress .card .card-body{
+display: block;
+float: left;
+width: 20%;
+text-align: center;
+line-height: 60px;
+
+  }  
+  .poll .pollInProgress .card .card-text {
+    display: block;
+    float: right;
+    width: 80%;
+    text-align: left;
+  padding: 20px 0px 0px;
+  margin: 0px;
+  }
+
+.poll .pollInProgress .card .card-text span , 
+.poll .pollInProgress .card .card-text input {
+display: block;
+margin: 0px 0px 5px 0px;
+width: 80%;
+ text-align: center;}
+
+  .poll .pollInProgress .card .card-text button {
+    float: none;
+    margin: 0px 33%;
+  }
+  .poll .pollInProgress .card .card-text button a {
+    text-decoration: none;
+    color: black;
+  }
+
+
+  .poll .poll-created .card {
+    margin: 10px auto;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 0px 0px 11px lightslategrey;
+    height: 140px;
+    width: 80%;
+    
+  }
+
+  .poll .poll-created .card .card-body{
+display: block;
+float: left;
+width: 20%;
+text-align: center;
+line-height: 60px;
+
+  }  
+  .poll .poll-created .card .card-text {
+    display: block;
+    float: right;
+    width: 80%;
+    text-align: left;
+padding: 8px 0px;
+  }
+
+.poll .poll-created .card .card-text  span , 
+.poll .poll-created .card .card-text  div
+{display: block;
+margin: 0px 0px 5px 0px;
+  }
+  /**/
+  
+ .poll-created .card {
+    margin: 10px auto;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 0px 0px 11px lightslategrey;
+    height: 140px;
+    width: 80%;
+    
+  }
+
+.poll-created .card .card-body{
+display: block;
+float: left;
+width: 20%;
+text-align: center;
+line-height: 60px;
+
+  }  
+.poll-created .card .card-text {
+    display: block;
+    float: right;
+    width: 80%;
+    text-align: left;
+padding: 8px 0px;
+  }
+
+ .poll-created .card .card-text  span , 
+ .poll-created .card .card-text  div
+{display: block;
+margin: 0px 0px 5px 0px;
+  }
+
+  
